@@ -7,9 +7,11 @@
 
 * A key *('H' by default)* lets you toggle between the two views (Vanilla VS Mod).
 * EXTENDED VIEW (VANILLA)
-* ![image](https://github.com/user-attachments/assets/3489b8e5-c159-49e9-b208-de0817f20bf1)
+
+![image](https://github.com/user-attachments/assets/3489b8e5-c159-49e9-b208-de0817f20bf1)
 * COMPACT VIEW (MOD)
-* ![image](https://github.com/user-attachments/assets/4506fcfd-f3e0-4965-a52a-9757d3d33f33)
+
+![image](https://github.com/user-attachments/assets/4506fcfd-f3e0-4965-a52a-9757d3d33f33)
 
 ## BLUEPRINTS ARE STACKED BY RESULT & CRAFTING LOCATION
 * Blueprints/recipes are stacked according to **Crafting/Cooking Result** (and crafting location too... sadly...).
