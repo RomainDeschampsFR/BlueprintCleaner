@@ -8,7 +8,7 @@ using UnityEngine;
 
 namespace BlueprintCleaner
 {
-    internal class CleanerSettings : JsonModSettings
+    internal class BlueprintCleanerSettings : JsonModSettings
     {
         [Name("Toggle display button")]
         [Description("Toggles between extended view (Vanilla view) and compact view (modified view).")]
@@ -28,11 +28,11 @@ namespace BlueprintCleaner
     }
     internal static class Settings
     {
-        internal static CleanerSettings settings;
+        internal static BlueprintCleanerSettings settings;
 
         public static void OnLoad()
         {
-            settings = new CleanerSettings();
+            settings = new BlueprintCleanerSettings();
             settings.AddToModSettings("Blueprint Cleaner");
         }
     }

@@ -7,8 +7,8 @@
 
 * A key *('H' by default)* lets you toggle between the two views (Vanilla VS Mod).
 
-## BLUEPRINTS ARE STACKED BY RESULT 
-* Blueprints/recipes are stacked according to **Crafting/Cooking Result**.
+## BLUEPRINTS ARE STACKED BY RESULT & CRAFTING LOCATION
+* Blueprints/recipes are stacked according to **Crafting/Cooking Result** (and crafting location too... sadly...).
 * They can be identified at the end of their name as follows: *[1/3]* (which means the 1st blueprint among 3... no kidding...)
 * You can switch between them with *('Left arrow' and 'Right arrow' by default)*.
 

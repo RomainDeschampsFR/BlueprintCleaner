@@ -67,13 +67,15 @@ namespace BlueprintCleaner
                 {
                     string? itemName = null;
 
+                    if (bpi.name == "BLUEPRINT_GEAR_NoiseMaker_A") continue;
+
                     if (bpi.m_CraftedResultDecoration != null)
                     {
-                        itemName = bpi.m_CraftedResultDecoration.name;
+                        itemName = bpi.m_CraftedResultDecoration.name + bpi.m_RequiredCraftingLocation.ToString();
                     }
                     else if (bpi.m_CraftedResultGear != null)
                     {
-                        itemName = bpi.m_CraftedResultGear.name;
+                        itemName = bpi.m_CraftedResultGear.name + bpi.m_RequiredCraftingLocation.ToString();
                     }
 
                     if (itemName != null)
@@ -167,7 +169,7 @@ namespace BlueprintCleaner
                 {
                     if (bpi.m_CraftedResultDecoration != null)
                     {
-                        string resultName = bpi.m_CraftedResultDecoration.name;
+                        string resultName = bpi.m_CraftedResultDecoration.name + bpi.m_RequiredCraftingLocation.ToString();
                         string blueprintName = bpi.name;
 
                         if (blueprintDuplicates.ContainsKey(resultName))
@@ -183,12 +185,12 @@ namespace BlueprintCleaner
                         }
                         else if (Main.blueprintsRemoved.Contains(blueprintName))
                         {
-                             __result = false;
+                            __result = false;
                         }
                     }
                     else if (bpi.m_CraftedResultGear != null)
                     {
-                        string resultName = bpi.m_CraftedResultGear.name;
+                        string resultName = bpi.m_CraftedResultGear.name + bpi.m_RequiredCraftingLocation.ToString();
                         string blueprintName = bpi.name;
 
                         if (blueprintDuplicates.ContainsKey(resultName))
@@ -202,9 +204,9 @@ namespace BlueprintCleaner
                                 __result = false;
                             }
                         }
-                        else if(Main.blueprintsRemoved.Contains(blueprintName))
+                        else if (Main.blueprintsRemoved.Contains(blueprintName))
                         {
-                             __result = false;
+                            __result = false;
                         }
                     }
                 }
@@ -230,7 +232,7 @@ namespace BlueprintCleaner
                 {
                     if (__instance.SelectedBPI.m_CraftedResultDecoration != null)
                     {
-                        string resultName = __instance.SelectedBPI.m_CraftedResultDecoration.name;
+                        string resultName = __instance.SelectedBPI.m_CraftedResultDecoration.name + __instance.SelectedBPI.m_RequiredCraftingLocation.ToString();
                         string blueprintName = __instance.SelectedBPI.name;
                         int blueprintIndex = 0;
 
@@ -258,7 +260,7 @@ namespace BlueprintCleaner
                     }
                     else if (__instance.SelectedBPI.m_CraftedResultGear != null)
                     {
-                        string resultName = __instance.SelectedBPI.m_CraftedResultGear.name;
+                        string resultName = __instance.SelectedBPI.m_CraftedResultGear.name + __instance.SelectedBPI.m_RequiredCraftingLocation.ToString();
                         string blueprintName = __instance.SelectedBPI.name;
                         int blueprintIndex = 0;
 
@@ -289,7 +291,7 @@ namespace BlueprintCleaner
                 {
                     if (__instance.SelectedBPI.m_CraftedResultDecoration != null)
                     {
-                        string resultName = __instance.SelectedBPI.m_CraftedResultDecoration.name;
+                        string resultName = __instance.SelectedBPI.m_CraftedResultDecoration.name + __instance.SelectedBPI.m_RequiredCraftingLocation.ToString();
                         string blueprintName = __instance.SelectedBPI.name;
                         int blueprintIndex = 0;
 
@@ -317,7 +319,7 @@ namespace BlueprintCleaner
                     }
                     else if (__instance.SelectedBPI.m_CraftedResultGear != null)
                     {
-                        string resultName = __instance.SelectedBPI.m_CraftedResultGear.name;
+                        string resultName = __instance.SelectedBPI.m_CraftedResultGear.name + __instance.SelectedBPI.m_RequiredCraftingLocation.ToString();
                         string blueprintName = __instance.SelectedBPI.name;
                         int blueprintIndex = 0;
 
@@ -404,14 +406,14 @@ namespace BlueprintCleaner
                 // SKIP 
                 if (Main.vanillaDisplay) return;
 
-                string gearName = __instance.m_CraftedResultGear.name;
+                string gearName = __instance.m_CraftedResultGear.name + __instance.m_RequiredCraftingLocation.ToString();
 
                 int rank = 0;
                 int i = 0;
 
                 if (__instance.m_CraftedResultDecoration != null)
                 {
-                    string decoName = __instance.m_CraftedResultDecoration.name;
+                    string decoName = __instance.m_CraftedResultDecoration.name + __instance.m_RequiredCraftingLocation.ToString();
                     if (blueprintDuplicates.ContainsKey(decoName))
                     {
                         foreach (string blueprint in blueprintDuplicates[decoName])
@@ -461,7 +463,7 @@ namespace BlueprintCleaner
                             Main.blueprintsRemoved.Remove(blueprintName);
                             if (__instance.m_BlueprintData.m_CraftedResultDecoration != null)
                             {
-                                string resultName = __instance.m_BlueprintData.m_CraftedResultDecoration.name;
+                                string resultName = __instance.m_BlueprintData.m_CraftedResultDecoration.name + __instance.m_BlueprintData.m_RequiredCraftingLocation.ToString();
                                 if (blueprintDuplicates.ContainsKey(resultName))
                                 {
                                     if (blueprintDuplicates[resultName] == null || blueprintDuplicates[resultName].Count == 0)
@@ -477,7 +479,7 @@ namespace BlueprintCleaner
                             }
                             else if (__instance.m_BlueprintData.m_CraftedResultGear != null)
                             {
-                                string resultName = __instance.m_BlueprintData.m_CraftedResultGear.name;
+                                string resultName = __instance.m_BlueprintData.m_CraftedResultGear.name + __instance.m_BlueprintData.m_RequiredCraftingLocation.ToString();
                                 if (blueprintDuplicates.ContainsKey(resultName))
                                 {
                                     if (blueprintDuplicates[resultName] == null || blueprintDuplicates[resultName].Count == 0)
@@ -499,7 +501,7 @@ namespace BlueprintCleaner
                             Main.blueprintsRemoved.Add(blueprintName);
                             if (__instance.m_BlueprintData.m_CraftedResultDecoration != null)
                             {
-                                string resultName = __instance.m_BlueprintData.m_CraftedResultDecoration.name;
+                                string resultName = __instance.m_BlueprintData.m_CraftedResultDecoration.name + __instance.m_BlueprintData.m_RequiredCraftingLocation.ToString();
                                 if (blueprintDuplicates.ContainsKey(resultName))
                                 {
                                     blueprintDuplicates[resultName].Remove(blueprintName);
@@ -515,7 +517,7 @@ namespace BlueprintCleaner
                             }
                             else if (__instance.m_BlueprintData.m_CraftedResultGear != null)
                             {
-                                string resultName = __instance.m_BlueprintData.m_CraftedResultGear.name;
+                                string resultName = __instance.m_BlueprintData.m_CraftedResultGear.name + __instance.m_BlueprintData.m_RequiredCraftingLocation.ToString();
                                 if (blueprintDuplicates.ContainsKey(resultName))
                                 {
                                     blueprintDuplicates[resultName].Remove(blueprintName);
