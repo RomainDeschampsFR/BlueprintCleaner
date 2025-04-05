@@ -12,7 +12,7 @@
 
 ![image](https://github.com/user-attachments/assets/3489b8e5-c159-49e9-b208-de0817f20bf1)
 
-**COMPACT VIEW (MOD)**
+###COMPACT VIEW (MOD)**
 
 ![image](https://github.com/user-attachments/assets/4506fcfd-f3e0-4965-a52a-9757d3d33f33)
 
@@ -21,7 +21,7 @@
 * They can be identified at the end of their name as follows: *[1/3]* (which means the 1st blueprint among 3... no kidding...)
 * You can switch between them with *('Left arrow' and 'Right arrow' by default)*.
 
-**SECOND BLUEPRINT CURRENTLY DISPLAYED**
+###SECOND BLUEPRINT CURRENTLY DISPLAYED**
 
 ![image](https://github.com/user-attachments/assets/9d3c7a17-7a5a-49c1-913c-7ca1db4978f2)
 
