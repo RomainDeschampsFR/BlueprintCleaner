@@ -1,4 +1,5 @@
 ﻿using MelonLoader;
+using UnityEngine;
 
 namespace BlueprintCleaner
 {
@@ -9,7 +10,7 @@ namespace BlueprintCleaner
 
         public override void OnInitializeMelon()
         {
-            MelonLogger.Msg($"[{Info.Name}] Version {Info.Version} loaded!");
+            Debug.Log($"[{Info.Name}] Version {Info.Version} loaded!");
             Settings.OnLoad();
         }
 
