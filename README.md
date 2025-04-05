@@ -8,10 +8,10 @@
 * A key *('H' by default)* lets you toggle between the two views (Vanilla VS Mod).
 
 
-### EXTENDED VIEW (VANILLA)
+### Extended view (Vanilla)
 ![image](https://github.com/user-attachments/assets/3489b8e5-c159-49e9-b208-de0817f20bf1)
 
-### COMPACT VIEW (MOD)
+### Compact view (Mod)
 ![image](https://github.com/user-attachments/assets/4506fcfd-f3e0-4965-a52a-9757d3d33f33)
 
 ## BLUEPRINTS ARE STACKED BY RESULT & CRAFTING LOCATION
