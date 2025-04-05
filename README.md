@@ -30,7 +30,9 @@
 ### Two hidden blueprints still displayed in *red* in the extended view
 ![image](https://github.com/user-attachments/assets/0bd54555-6009-4a17-8b64-28e2eeaa0c77)
 
-### Both removed from the selection in the modded view
+### Both blueprints are removed from the modded view
+*If you hide the four of them, none will be displayed (obviously...)*
+
 ![image](https://github.com/user-attachments/assets/2fac716d-895b-461b-a495-6121aae59a31)
 
 ## KNOWN ISSUE :
