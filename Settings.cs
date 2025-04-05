@@ -20,11 +20,11 @@ namespace BlueprintCleaner
 
         [Name("Next blueprint key")]
         [Description("Displays the next blueprint when stacked.")]
-        public KeyCode leftKey = KeyCode.RightArrow;
+        public KeyCode rightKey = KeyCode.RightArrow;
 
         [Name("Previous blueprint Key")]
         [Description("Displays the previous blueprint when stacked.")]
-        public KeyCode rightKey = KeyCode.LeftArrow;
+        public KeyCode leftKey = KeyCode.LeftArrow;
     }
     internal static class Settings
     {

@@ -15,7 +15,7 @@ namespace BlueprintCleaner
 
         public static void SaveListToJson(List<string> blueprintsList)
         {
-            string path = Path.Combine(System.AppDomain.CurrentDomain.BaseDirectory, "Mods", "RemovedBlueprints_dont_touch_this_file.json");
+            string path = Path.Combine(System.AppDomain.CurrentDomain.BaseDirectory, "Mods", "BlueprintsRemoved_dont_touch_this_file.json");
 
             string json = "[" + string.Join(",", blueprintsList.ConvertAll(item => $"\"{item}\"")) + "]";
 
@@ -25,7 +25,7 @@ namespace BlueprintCleaner
 
         public static List<string> LoadListFromJson()
         {
-            string path = Path.Combine(System.AppDomain.CurrentDomain.BaseDirectory, "Mods", "RemovedBlueprints_dont_touch_this_file.json");
+            string path = Path.Combine(System.AppDomain.CurrentDomain.BaseDirectory, "Mods", "BlueprintsRemoved_dont_touch_this_file.json");
 
             if (File.Exists(path))
             {
