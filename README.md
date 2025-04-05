@@ -19,7 +19,7 @@
 * They can be identified at the end of their name as follows: *[1/3]* (which means the 1st blueprint among 3... no kidding...)
 * You can switch between them with *('Left arrow' and 'Right arrow' by default)*.
 
-### SECOND BLUEPRINT CURRENTLY DISPLAYED
+### Second blueprints currently displayed
 ![image](https://github.com/user-attachments/assets/9d3c7a17-7a5a-49c1-913c-7ca1db4978f2)
 
 ## HIDE/SHOW BLUEPRINTS
@@ -27,16 +27,16 @@
 * Hidden blueprints will appear with a red background in the extended view.
 * You can then display it again by clicking the same way on it. *('Left ALT' + 'LMB' by default)*
 
-### TWO BLUEPRINTS HIDDEN STILL DISPLAY IN RED IN EXTENDED VIEW
+### Two hidden blueprints still displayed in *red* in the extended view
 ![image](https://github.com/user-attachments/assets/0bd54555-6009-4a17-8b64-28e2eeaa0c77)
 
-### SECOND BLUEPRINT CURRENTLY DISPLAYED
+### Both removed from the selection in the modded view
 ![image](https://github.com/user-attachments/assets/2fac716d-895b-461b-a495-6121aae59a31)
 
 ## KNOWN ISSUE :
 
-BLUEPRINTS WITH DIFFERENT CRAFTING LOCATION CAN'T BE STACKED
-In the case below there's two gunpowder blueprints crafted at the ammo workbench and two others crafted at the regular workbench leading to two different lines.
+### Blueprints with different *crafting location* can't be stacked
+In the case below there's **two** gunpowder blueprints crafted at the **ammo workbench** and **two** others crafted at the **regular workbench** leading to two different lines displayed.
 
 ![image](https://github.com/user-attachments/assets/2385e2a8-5b0e-4c2b-9f71-751c34bdfab7)
 
