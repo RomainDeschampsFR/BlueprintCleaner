@@ -19,7 +19,7 @@
 * They can be identified at the end of their name as follows: *[1/3]* (which means the 1st blueprint among 3... no kidding...)
 * You can switch between them with *('Left arrow' and 'Right arrow' by default)*.
 
-### Second blueprints currently displayed
+### Second blueprint currently displayed
 ![image](https://github.com/user-attachments/assets/9d3c7a17-7a5a-49c1-913c-7ca1db4978f2)
 
 ## HIDE/SHOW BLUEPRINTS
