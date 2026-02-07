@@ -29,6 +29,7 @@ namespace BlueprintCleaner
         public static string? lastBlueprintSelected;
         public static string? lastRecipeSelected;
         public static int? lastCookableItemSelected;
+        //public static var name;
 
         // Dictionnary to store item names and corresponding BlueprintData
         public static Il2CppSystem.Collections.Generic.Dictionary<string, Il2CppSystem.Collections.Generic.List<string>> blueprintDuplicates = new Il2CppSystem.Collections.Generic.Dictionary<string, Il2CppSystem.Collections.Generic.List<string>>();
@@ -1069,11 +1070,11 @@ namespace BlueprintCleaner
                 }
             }
         }
-       
+
         /////////////////////////////////////////////////////////////////////////////////
         // ---------------------  CRAFTING & COOKING PATCHES  ------------------------ //
         /////////////////////////////////////////////////////////////////////////////////
-        
+
         [HarmonyPatch(typeof(ScrollBehaviour), nameof(ScrollBehaviour.RefreshItems))]
         internal static class ScrollBehaviour_RefreshItems
         {
