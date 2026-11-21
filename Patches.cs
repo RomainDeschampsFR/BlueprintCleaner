@@ -22,10 +22,7 @@ namespace BlueprintCleaner
 {
     internal class Patches
     {
-        public static bool alreadyRefreshed = false;
         public static float? scrollValue;
-        public static int? firstLine;
-        public static int? lastIndex;
         public static string? lastBlueprintSelected;
         public static string? lastRecipeSelected;
         public static int? lastCookableItemSelected;
@@ -109,12 +106,10 @@ namespace BlueprintCleaner
                     blueprintDuplicates.Remove(key);
                 }
 
-
                 var keysToUpdate = new Il2CppSystem.Collections.Generic.List<string>();
 
                 foreach (var blueprint in Main.blueprintsRemoved)
                 {
-
                     foreach (var result in blueprintDuplicates)
                     {
                         if (result.Value != null && result.Value.Contains(blueprint))
@@ -138,22 +133,6 @@ namespace BlueprintCleaner
                 {
                     //populate activeBlueprint dictionary with the first blueprints for each item
                     activeBlueprint[pair.Key] = pair.Value != null && pair.Value.Count > 0 ? pair.Value[0] : "";
-
-                    /// LOG PART ///
-                    /*Il2CppSystem.Collections.Generic.List<string> blueprintNamesList = pair.Value;
-                    string blueprintNames = string.Empty;
-
-                    for (int i = 0; i < blueprintNamesList.Count; i++)
-                    {
-
-                        blueprintNames += blueprintNamesList[i];
-
-                        if (i < blueprintNamesList.Count - 1)
-                        {
-                            blueprintNames += ", ";
-                        }
-                    }
-                    MelonLogger.Msg($"Item: {pair.Key}, Blueprints: {blueprintNames}");*/
                 }
             }
         }
@@ -228,6 +207,7 @@ namespace BlueprintCleaner
 
                 // SKIP 
                 if (Main.vanillaDisplay) return;
+                if (__instance.SelectedBPI == null) return;
 
                 if (InputManager.GetKeyDown(InputManager.m_CurrentContext, Settings.settings.rightKey))
                 {
@@ -240,7 +220,7 @@ namespace BlueprintCleaner
                         if (activeBlueprint.ContainsKey(resultName))
                         {
                             int blueprintCount = blueprintDuplicates[resultName].Count;
-                            
+
                             for (int i = 0; i < blueprintCount; i++)
                             {
                                 if (blueprintDuplicates[resultName][i] == blueprintName) blueprintIndex = i;
@@ -344,13 +324,11 @@ namespace BlueprintCleaner
 
                             lastBlueprintSelected = activeBlueprint[resultName];
                             __instance.OnCategoryChanged(__instance.m_CategoryNavigation.m_CurrentIndex);
-
                         }
                     }
                 }
             }
         }
-
         // This patch will allow to keep the blueprint selected
         [HarmonyPatch(typeof(Panel_Crafting), nameof(Panel_Crafting.OnCategoryChanged))]
         internal static class Panel_Crafting_OnCategoryChanged
@@ -382,7 +360,7 @@ namespace BlueprintCleaner
         }
 
         // Remove 'FILTER' Label in Panel_Crafting
-        [HarmonyPatch(typeof(Panel_Crafting), nameof(Panel_Crafting.Enable), new Type[] { typeof(bool) , typeof(bool) })]
+        [HarmonyPatch(typeof(Panel_Crafting), nameof(Panel_Crafting.Enable), new Type[] { typeof(bool), typeof(bool) })]
         internal static class Panel_Crafting_Enable
         {
             private static void Postfix(Panel_Crafting __instance, bool enable)
@@ -397,17 +375,16 @@ namespace BlueprintCleaner
         {
             private static void Postfix(BlueprintData __instance, ref string __result)
             {
+                if (__instance == null || string.IsNullOrEmpty(__result)) return;
 
                 int indexParenthese = __result.IndexOf('(');
-                if (indexParenthese != -1)
+                if (indexParenthese > 0)
                 {
                     __result = __result.Substring(0, indexParenthese - 1);
                 }
 
                 // SKIP 
                 if (Main.vanillaDisplay) return;
-
-                string gearName = __instance.m_CraftedResultGear.name + __instance.m_RequiredCraftingLocation.ToString();
 
                 int rank = 0;
                 int i = 0;
@@ -428,8 +405,9 @@ namespace BlueprintCleaner
                         __result += $" [{rank}/{i}]";
                     }
                 }
-                else
+                else if (__instance.m_CraftedResultGear != null)
                 {
+                    string gearName = __instance.m_CraftedResultGear.name + __instance.m_RequiredCraftingLocation.ToString();
                     if (blueprintDuplicates.ContainsKey(gearName))
                     {
                         foreach (string blueprint in blueprintDuplicates[gearName])
@@ -540,7 +518,6 @@ namespace BlueprintCleaner
                 }
             }
         }
-
         /////////////////////////////////////////////////////////////////////////////////
         // --------------------------  COOKING PATCHES  ----------------------------- ///
         /////////////////////////////////////////////////////////////////////////////////
@@ -994,11 +971,16 @@ namespace BlueprintCleaner
         {
             private static void Postfix(ScrollBehaviourItem __instance)
             {
-                if (GameManager.IsBootSceneActive()) return;
-                if (GameManager.IsEmptySceneActive()) return;
-                if (GameManager.IsMainMenuActive()) return;
-                if (__instance == null) return;
-                if (__instance.gameObject == null) return;
+                string scene = GameManager.m_ActiveScene;
+                if (string.IsNullOrEmpty(scene)
+                    || scene.Equals("Boot", System.StringComparison.OrdinalIgnoreCase)
+                    || scene.Equals("Empty", System.StringComparison.OrdinalIgnoreCase)
+                    || scene.StartsWith("MainMenu", System.StringComparison.OrdinalIgnoreCase))
+                {
+                    return;
+                }
+
+                if (__instance == null || __instance.gameObject == null) return;
 
                 // If LeftAlt key is pressed and Panel_Cooking is active
                 if (Input.GetKey(Settings.settings.HoldKey))
@@ -1070,7 +1052,6 @@ namespace BlueprintCleaner
                 }
             }
         }
-
         /////////////////////////////////////////////////////////////////////////////////
         // ---------------------  CRAFTING & COOKING PATCHES  ------------------------ //
         /////////////////////////////////////////////////////////////////////////////////
